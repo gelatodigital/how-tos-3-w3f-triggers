@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/SimpleCounter.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.23;\n\ncontract EventOracle {\n    uint256 public price;\n\n    event GetPriceEvent();\n\n    function getPrice() external {\n        emit GetPriceEvent();\n    }\n\n    event PriceUpdated(uint256 indexed timeStamp, uint256 price);\n\n    function updatePrice(uint256 _price) external {\n        price = _price;\n\n        emit PriceUpdated(block.timestamp, _price);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

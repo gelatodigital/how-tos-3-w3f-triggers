@@ -15,8 +15,9 @@
     "lint:ts": "eslint -c .eslintrc.json --ext \"**/*.ts\" \"**/*.test.ts\"",
     "lint:sol": "solhint contracts/**/*.sol",
     "test": "npx hardhat test",
-    "w3f:deploy": "npx w3f deploy web3-functions/simple/index.ts",
-    "w3f:test": "npx w3f test web3-functions/simple/index.ts --logs --chain-id=88153591557"
+    "getPrice": "npx hardhat run scripts/getPrice.ts --network blueberry ",
+    "w3f:deploy": "npx w3f deploy web3-functions/simple-event/index.ts",
+    "w3f:test": "npx w3f test web3-functions/simple-event/index.ts --logs --chain-id=88153591557"
   },
   "license": "ISC",
   "devDependencies": {
@@ -58,9 +59,8 @@
     "*.*{ts,js}": "eslint -c .eslintrc.json"
   },
   "dependencies": {
-    "@gelatonetwork/automate-sdk": "^2.7.0-beta",
-    "@gelatonetwork/web3-functions-sdk": "^2.0.3",
-    "@simple-finance/evm-connector": "^0.0.22",
+    "@gelatonetwork/automate-sdk": "^3.0.2",
+    "@gelatonetwork/web3-functions-sdk": "2.4.1",
     "ky": "^0.33.2"
   }
 }

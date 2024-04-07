@@ -1,0 +1,114 @@
+{
+  "address": "0x803e3B9f424167B75843c3f831F20F7d770260D9",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "GetPriceEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "timeStamp",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "PriceUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "getPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "price",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "updatePrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2c7becc147e6757946b3fd5bc2e45d6152a279a0e6233157efa7a8813a216cda",
+  "receipt": {
+    "to": null,
+    "from": "0xB65540bBA534E88EB4a5062D0E6519C07063b259",
+    "contractAddress": "0x803e3B9f424167B75843c3f831F20F7d770260D9",
+    "transactionIndex": 1,
+    "gasUsed": "117367",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x7acd6206aab5ae2ebd6fe34ee3f410ba94952cbafea373b30ede5e4d1aea57ec",
+    "transactionHash": "0x2c7becc147e6757946b3fd5bc2e45d6152a279a0e6233157efa7a8813a216cda",
+    "logs": [],
+    "blockNumber": 8336,
+    "cumulativeGasUsed": "117367",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 2,
+  "solcInputHash": "76915e7841e02ab8a644db168cc8f0d1",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[],\"name\":\"GetPriceEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"PriceUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"price\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"}],\"name\":\"updatePrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/EventOracle.sol\":\"EventOracle\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/EventOracle.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.23;\\n\\ncontract EventOracle {\\n    uint256 public price;\\n\\n    event GetPriceEvent();\\n\\n    function getPrice() external {\\n        emit GetPriceEvent();\\n    }\\n\\n    event PriceUpdated(uint256 indexed timeStamp, uint256 price);\\n\\n    function updatePrice(uint256 _price) external {\\n        price = _price;\\n\\n        emit PriceUpdated(block.timestamp, _price);\\n    }\\n}\\n\",\"keccak256\":\"0x8d7b07f81a87c85a9b793fcc815d20b5e4b2d1d07919bda10659c95f2f512bce\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610128806100206000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80638d6cc56d14604157806398d5fdca146052578063a035b1fe146058575b600080fd5b6050604c36600460da565b6072565b005b605060af565b606060005481565b60405190815260200160405180910390f35b600081905560405181815242907f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968389060200160405180910390a250565b6040517f2309e1e9cfe0a2156ced195327abdec4cbed8b31c841c6f15bc67a383594140d90600090a1565b60006020828403121560eb57600080fd5b503591905056fea26469706673582212203b2fedf7e982c7f0a9dc3d7bafbe240ddb69661c59a322aaf85768c2a143764864736f6c63430008170033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80638d6cc56d14604157806398d5fdca146052578063a035b1fe146058575b600080fd5b6050604c36600460da565b6072565b005b605060af565b606060005481565b60405190815260200160405180910390f35b600081905560405181815242907f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968389060200160405180910390a250565b6040517f2309e1e9cfe0a2156ced195327abdec4cbed8b31c841c6f15bc67a383594140d90600090a1565b60006020828403121560eb57600080fd5b503591905056fea26469706673582212203b2fedf7e982c7f0a9dc3d7bafbe240ddb69661c59a322aaf85768c2a143764864736f6c63430008170033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3,
+        "contract": "contracts/EventOracle.sol:EventOracle",
+        "label": "price",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
