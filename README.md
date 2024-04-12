@@ -1,6 +1,9 @@
-# Web3 Function Triggers
+# How-Tos #3 Web3 Function Triggers
 
 This repository provides a framework for triggering functions based on various events in the Ethereum blockchain. With Web3 function triggers, you can automate tasks and execute functions in response to predefined triggers, offering greater flexibility and efficiency in your decentralized applications (DApps).
+
+[![Video Walkthrough](https://img.youtube.com/vi/7UpqGsANsBQ/0.jpg)](https://youtu.be/7UpqGsANsBQ)
+
 
 ## Trigger Types
 
