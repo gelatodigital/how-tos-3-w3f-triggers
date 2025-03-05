@@ -1,0 +1,85 @@
+{
+  "address": "0xe3689ABC2F6648BA8be68cE41620988C4e2708bd",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract ICounter",
+          "name": "_counter",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "checker",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "canExec",
+          "type": "bool"
+        },
+        {
+          "internalType": "bytes",
+          "name": "execPayload",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "counter",
+      "outputs": [
+        {
+          "internalType": "contract ICounter",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x1de69fa6506e81ff4b89f292f1e4c8ab7f06d5e5e7bf6c3c62e26f9c091c1010",
+  "receipt": {
+    "to": null,
+    "from": "0x23e359eCAB56210f4b8B559218C4d27A85b052b8",
+    "contractAddress": "0xe3689ABC2F6648BA8be68cE41620988C4e2708bd",
+    "transactionIndex": 2,
+    "gasUsed": "179734",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x81851cf8212c57c5f92e281d6e1798f6b74e29e31a41783c25292b96820d8e5b",
+    "transactionHash": "0x1de69fa6506e81ff4b89f292f1e4c8ab7f06d5e5e7bf6c3c62e26f9c091c1010",
+    "logs": [],
+    "blockNumber": 6138414,
+    "cumulativeGasUsed": "314971",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x2f32A4796bc8A37229FCfe8018f1fd6FBA19471C"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "2535e146dd7d8895f1166bb4fffea192",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract ICounter\",\"name\":\"_counter\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"checker\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"canExec\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"execPayload\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"counter\",\"outputs\":[{\"internalType\":\"contract ICounter\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/CounterResolverWT.sol\":\"CounterResolverWT\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/CounterResolverWT.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\npragma solidity ^0.8.17;\\n\\n// Interface for the Counter contract\\ninterface ICounter {\\n    // Function to increase the count by a specified amount\\n    function increaseCount(uint256 amount) external;\\n\\n    // Function to get the timestamp of the last execution\\n    function lastExecuted() external view returns (uint256);\\n}\\n\\n// Disable Solidity linting rule for not relying on block timestamp for non-critical operations\\n// solhint-disable not-rely-on-time\\ncontract CounterResolverWT {\\n    // Immutable variable to store the address of the Counter contract\\n    ICounter public immutable counter;\\n\\n    // Constructor to initialize the Counter contract address\\n    constructor(ICounter _counter) {\\n        counter = _counter;\\n    }\\n\\n    // Function to check if the increaseCount function can be executed and prepare the payload\\n    function checker()\\n        external\\n        view\\n        returns (bool canExec, bytes memory execPayload)\\n    {\\n        // Get the timestamp of the last execution from the Counter contract\\n        uint256 lastExecuted = counter.lastExecuted();\\n\\n        // Determine if more than 180 seconds have passed since the last execution\\n        canExec = (block.timestamp - lastExecuted) > 180;\\n\\n        // Prepare the function call payload for increaseCount(1)\\n        execPayload = abi.encodeCall(ICounter.increaseCount, (1));\\n    }\\n}\",\"keccak256\":\"0xd4d2d5d5baf250cf0401e0fce17f1b9de5652a5954a4b1b6afc560e454aba584\",\"license\":\"UNLICENSED\"}},\"version\":1}",
+  "bytecode": "0x60a060405234801561001057600080fd5b506040516102d23803806102d283398101604081905261002f91610040565b6001600160a01b0316608052610070565b60006020828403121561005257600080fd5b81516001600160a01b038116811461006957600080fd5b9392505050565b6080516102426100906000396000818160400152609d01526102426000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806361bc221a1461003b578063cf5303cf1461007f575b600080fd5b6100627f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b610087610095565b604051610076929190610173565b6000606060007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316631c15ff776040518163ffffffff1660e01b8152600401602060405180830381865afa1580156100f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061011d91906101cc565b905060b461012b82426101e5565b119250600160405160240161014291815260200190565b60408051601f198184030181529190526020810180516001600160e01b031663236a56f960e11b1790529293915050565b82151581526000602060406020840152835180604085015260005b818110156101aa5785810183015185820160600152820161018e565b506000606082860101526060601f19601f830116850101925050509392505050565b6000602082840312156101de57600080fd5b5051919050565b8181038181111561020657634e487b7160e01b600052601160045260246000fd5b9291505056fea2646970667358221220be38c2fedda9a426f74656c355312ba29b92b9a95ba9dfad104ba1b5d5bc774d64736f6c63430008170033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806361bc221a1461003b578063cf5303cf1461007f575b600080fd5b6100627f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b610087610095565b604051610076929190610173565b6000606060007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316631c15ff776040518163ffffffff1660e01b8152600401602060405180830381865afa1580156100f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061011d91906101cc565b905060b461012b82426101e5565b119250600160405160240161014291815260200190565b60408051601f198184030181529190526020810180516001600160e01b031663236a56f960e11b1790529293915050565b82151581526000602060406020840152835180604085015260005b818110156101aa5785810183015185820160600152820161018e565b506000606082860101526060601f19601f830116850101925050509392505050565b6000602082840312156101de57600080fd5b5051919050565b8181038181111561020657634e487b7160e01b600052601160045260246000fd5b9291505056fea2646970667358221220be38c2fedda9a426f74656c355312ba29b92b9a95ba9dfad104ba1b5d5bc774d64736f6c63430008170033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

@@ -10,7 +10,7 @@ async function main() {
   // Init GelatoOpsSDK
   const [signer] = await hre.ethers.getSigners();
 
-  const eventOracleAddress = "0x803e3B9f424167B75843c3f831F20F7d770260D9";
+  const eventOracleAddress = "0x7b8d30c0F605fCa77F2ec04661C11c369f630753";
   const eventOracle = new Contract(eventOracleAddress, EventOracleJson.abi , signer);
 
   let tx = await eventOracle.getPrice()

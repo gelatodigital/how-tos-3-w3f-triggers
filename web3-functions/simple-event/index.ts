@@ -17,7 +17,7 @@ Web3Function.onRun(async (context: Web3FunctionEventContext) => {
   const provider = multiChainProvider.default();
 
   const oracleAddress =
-    (userArgs.oracle as string) ?? "0x803e3B9f424167B75843c3f831F20F7d770260D9";
+    (userArgs.oracle as string) ?? "0x7b8d30c0F605fCa77F2ec04661C11c369f630753";
   let oracle = new Contract(oracleAddress, SIMPLE_COUNTER_ABI, provider);
 
   const event = oracle.interface.parseLog(log);

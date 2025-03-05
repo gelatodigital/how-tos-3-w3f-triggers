@@ -16,6 +16,7 @@ dotenv.config({ path: __dirname + "/.env" });
 
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const ROOTSTOCK_RPC_URL = process.env.ROOTSTOCK_RPC_URL;
 const accounts: string[] =  PRIVATE_KEY ? [PRIVATE_KEY] : [];
 
 // ================================= CONFIG =========================================
@@ -23,7 +24,7 @@ const config: HardhatUserConfig = {
   w3f: {
     rootDir: "./web3-functions",
     debug: false,
-    networks: ["mumbai", "goerli", "baseGoerli"], //(multiChainProvider) injects provider for these networks
+    networks: ["mumbai", "goerli", "baseGoerli", "rootstocktestnet"], //(multiChainProvider) injects provider for these networks
   },
 
   namedAccounts: {
@@ -57,10 +58,16 @@ const config: HardhatUserConfig = {
       chainId: 94204209,
       url: `https://rpc.polygon-blackberry.gelato.digital`,
     },
+    rootstocktestnet: {
+      accounts,
+      chainId: 31,
+      url: ROOTSTOCK_RPC_URL,
+    },
   },
   etherscan: {
     apiKey: {
-      blueberry: "xxx"
+      blueberry: "xxx",
+      rootstocktestnet: "xxx"
     },
     customChains: [
       {
@@ -69,6 +76,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://arb-blueberry.gelatoscout.com/api",
           browserURL: "https://arb-blueberry.gelatoscout.com"
+        }
+      },
+      {
+        network: "rootstocktestnet",
+        chainId: 31,
+        urls: {
+          apiURL: "https://rootstock-testnet.blockscout.com/api",
+          browserURL: "https://rootstock-testnet.blockscout.com"
         }
       }
     ]

@@ -1,0 +1,135 @@
+{
+  "address": "0x7b8d30c0F605fCa77F2ec04661C11c369f630753",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "GetPriceEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "updateId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "PriceUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "getPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "price",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "updateCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "updatePrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x3b0093e3a586e63107a8b888f946c42938542e539ab2b9ac4d61c2c3a8dbe5f7",
+  "receipt": {
+    "to": null,
+    "from": "0x23e359eCAB56210f4b8B559218C4d27A85b052b8",
+    "contractAddress": "0x7b8d30c0F605fCa77F2ec04661C11c369f630753",
+    "transactionIndex": 2,
+    "gasUsed": "137081",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xa9512fc054b62d04841793018b7cc07cf353482b238334562a096a4cc8ad1cd7",
+    "transactionHash": "0x3b0093e3a586e63107a8b888f946c42938542e539ab2b9ac4d61c2c3a8dbe5f7",
+    "logs": [],
+    "blockNumber": 6138357,
+    "cumulativeGasUsed": "322569",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "2535e146dd7d8895f1166bb4fffea192",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[],\"name\":\"GetPriceEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"updateId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"PriceUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"price\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"updateCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"}],\"name\":\"updatePrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/EventOracle.sol\":\"EventOracle\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/EventOracle.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.17;\\n\\ncontract EventOracle {\\n    uint256 public price;\\n    uint256 public updateCount;\\n\\n    event GetPriceEvent();\\n\\n    function getPrice() external {\\n        emit GetPriceEvent();\\n    }\\n\\n    event PriceUpdated(uint256 indexed updateId, uint256 price);\\n\\n    function updatePrice(uint256 _price) external {\\n        price = _price;\\n        updateCount++;\\n        \\n        emit PriceUpdated(updateCount, _price);\\n    }\\n}\\n\",\"keccak256\":\"0x953fbd0719822ef1176cd930fc220a02841631882004f3fe7774304ed3c6b62f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610184806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806369b4ecc9146100515780638d6cc56d1461006c57806398d5fdca14610081578063a035b1fe14610089575b600080fd5b61005a60015481565b60405190815260200160405180910390f35b61007f61007a36600461010e565b610092565b005b61007f6100e3565b61005a60005481565b600081815560018054916100a583610127565b90915550506001546040518281527f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968389060200160405180910390a250565b6040517f2309e1e9cfe0a2156ced195327abdec4cbed8b31c841c6f15bc67a383594140d90600090a1565b60006020828403121561012057600080fd5b5035919050565b60006001820161014757634e487b7160e01b600052601160045260246000fd5b506001019056fea26469706673582212203a2b450a71250f71fb0693fe3abf54eaed30086fb2b72a0670cdac875cf586aa64736f6c63430008170033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806369b4ecc9146100515780638d6cc56d1461006c57806398d5fdca14610081578063a035b1fe14610089575b600080fd5b61005a60015481565b60405190815260200160405180910390f35b61007f61007a36600461010e565b610092565b005b61007f6100e3565b61005a60005481565b600081815560018054916100a583610127565b90915550506001546040518281527f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968389060200160405180910390a250565b6040517f2309e1e9cfe0a2156ced195327abdec4cbed8b31c841c6f15bc67a383594140d90600090a1565b60006020828403121561012057600080fd5b5035919050565b60006001820161014757634e487b7160e01b600052601160045260246000fd5b506001019056fea26469706673582212203a2b450a71250f71fb0693fe3abf54eaed30086fb2b72a0670cdac875cf586aa64736f6c63430008170033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 867,
+        "contract": "contracts/EventOracle.sol:EventOracle",
+        "label": "price",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 869,
+        "contract": "contracts/EventOracle.sol:EventOracle",
+        "label": "updateCount",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
